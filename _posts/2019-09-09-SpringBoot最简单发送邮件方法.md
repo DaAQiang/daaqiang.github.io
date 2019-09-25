@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Hello World
-subtitle: '或许是最漂亮的Jekyll主题'
+title: SpringBoot最简单发送邮件方法
+subtitle: '简单配置高效实现'
 date: 2019-09-09
 categories: test
-tags: Hello 
+tags: easy Email 
 ---
 
 Hello in markdown :)
