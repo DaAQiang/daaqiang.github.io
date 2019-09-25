@@ -4,7 +4,7 @@ title: SpringBoot最简单发送邮件方法
 subtitle: '简单配置高效实现'
 date: 2019-09-09
 categories: test
-tags: easy Email 
+tags: SpringBoot
 ---
 
 Hello in markdown :)
