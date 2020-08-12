@@ -18,7 +18,7 @@ If you like this theme or using it, please give a ⭐️ for motivation ;)
 
 如果想体验手机浏览效果，可以扫一下二维码：
 
-![](screenshot/1494404591.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4m88uw0j306y06yjr9.jpg)
 
 Using your smartphone to scan the QR Code
 
@@ -317,7 +317,7 @@ nightMode: true
 
 #### 主题皮肤
 
-![](screenshot/jekyll-theme-h2o-themecolor.jpg)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4nuzmvyj310x0u0b29.jpg)
 
 支持两种主题颜色蓝色（默认）和粉色
 
@@ -346,7 +346,7 @@ header-img: assets/img/banner.jpg
 
 #### 头图底纹
 
-![](screenshot/jekyll-theme-h2o-heroPatterns.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4o9rb35j318q0inq3f.jpg)
 
 在没有图片的情况下单纯显示颜色会不会太无趣了点？于是想到了加入底纹元素，底纹素材是SVG格式的（保存在css样式里），加载比图片快很多。六种底纹（电路、食物、云海、钻石等等）供你选择，配置如下：
 
