@@ -8,7 +8,7 @@
 
 #### [在线预览 Live Demo →](https://daaqiang.github.io/)
 
-![](screenshot/jekyll-theme-h2o-realhome.jpg)
+![](屏幕截图/jekyll-theme-h2o-realhome.jpg)
 
 ![](screenshot/jekyll-theme-h2o-realm.png)
 
