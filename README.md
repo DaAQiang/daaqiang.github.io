@@ -178,7 +178,7 @@ exclude: ['node_modules', 'dev', 'package.json', '自定义的文件夹名字']
 
 #### 侧边栏
 
-![](screenshot/jekyll-theme-h2o-sideBar.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4smo25cj30640c4t9c.jpg)
 
 侧边栏分为两个部分：【个人简介】和【推荐标签】。当屏幕宽度小于960px时，侧边栏会被隐藏。
 
@@ -250,7 +250,7 @@ Tags配置说明：
 
 #### 文章搜索
 
-![](screenshot/jekyll-theme-h2o-search.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4tnp0jjj306405tmxi.jpg)
 
 基于Jekyll服务器生成文章索引文件 `search.json` 为博客提供搜索服务。输入文章标题或与文章标签相关的关键字即可。
 
