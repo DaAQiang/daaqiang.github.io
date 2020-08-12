@@ -10,7 +10,7 @@
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4480pdij31400sgn8s.jpg)
 
-![](screenshot/jekyll-theme-h2o-realm.png)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1gho4fu1oe6j30tv1c9jxa.jpg)
 
 如果你喜欢这个博客模板，请在右上角star一下，非常感谢～
 
