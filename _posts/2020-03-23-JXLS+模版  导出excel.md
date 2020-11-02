@@ -4,7 +4,7 @@ title: JXLS+模版 导出excel
 subtitle: 'java导出excel'
 date: 2020-03-24
 categories: test
-tags: java 
+tags: Java 
 ---
 
 在用java开发类似后台管理系统时，基本上都会涉及到excel导出数据的业务功能，大部分开发者都会选择poi或jxls，两者都有优点和缺点这里不做详细陈述。做按固定的模版进行导出时，这种情况用jxls做导出是最高效也是最方便的。  
