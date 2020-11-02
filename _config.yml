@@ -95,4 +95,4 @@ plugins:
 #   - jekyll/figure
 gems: [jekyll-paginate]
 #主页背景图
-backimg: '/assets/img/banner.png'
+backimg: '/assets/img/110202.png'
