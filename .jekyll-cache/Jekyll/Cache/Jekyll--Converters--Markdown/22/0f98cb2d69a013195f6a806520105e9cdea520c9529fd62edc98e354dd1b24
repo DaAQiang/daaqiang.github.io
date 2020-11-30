@@ -1,0 +1,40 @@
+I"<p>在用java开发类似后台管理系统时，基本上都会涉及到excel导出数据的业务功能，大部分开发者都会选择poi或jxls，两者都有优点和缺点这里不做详细陈述。做按固定的模版进行导出时，这种情况用jxls做导出是最高效也是最方便的。<br />
+jxls官网:（http://jxls.sourceforge.net/)<br />
+下面是实际代码，只提供思路，一些相关配置不做说明，直接放关键代码：<br />
+<br />
+<strong>JAVA代码</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 表格使用的数据</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="c1">//...这里获取数据给list，因人而异</span>
+<span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;();</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"data"</span><span class="o">,</span><span class="n">list</span><span class="o">);</span>
+
+<span class="c1">// 获取模板文件</span>
+<span class="nc">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="s">"../template/register.xlsx"</span><span class="o">);</span>
+<span class="nc">XLSTransformer</span> <span class="n">xlsTransformer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">XLSTransformer</span><span class="o">();</span>
+
+<span class="c1">// 获取 Workbook ，传入 模板 和 数据  </span>
+<span class="nc">Workbook</span> <span class="n">workbook</span> <span class="o">=</span>  <span class="n">xlsTransformer</span><span class="o">.</span><span class="na">transformXLS</span><span class="o">(</span><span class="n">is</span><span class="o">,</span><span class="n">map</span><span class="o">);</span>
+
+<span class="c1">// 写出文件</span>
+<span class="nc">OutputStream</span> <span class="n">os</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">response</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Disposition"</span><span class="o">,</span> <span class="s">"attachment;filename="</span><span class="o">+</span> <span class="nc">URLEncoder</span><span class="o">.</span><span class="na">encode</span><span class="o">(</span><span class="s">"外来人员健康登记表.xlsx"</span><span class="o">,</span> <span class="s">"UTF-8"</span><span class="o">));</span>
+<span class="n">os</span><span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedOutputStream</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+<span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"application/vnd.ms-excel;charset=utf-8"</span><span class="o">);</span>
+<span class="c1">//输出</span>
+<span class="n">workbook</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">os</span><span class="o">);</span>
+<span class="n">is</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="n">os</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="n">os</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></div></div>
+<p><br />
+<strong>excel模版设置</strong><br />
+<img src="https://tva1.sinaimg.cn/large/00831rSTly1gddynhj4dyj31nv0u0npe.jpg" alt="excel01" />
+表头批注：<code class="highlighter-rouge">jx:area(lastCell="U6")</code>    U6是最末位单元格</p>
+
+<p>数据批注：<code class="highlighter-rouge">jx:each(items="list" var="item" lastCell="U6")</code></p>
+
+<p>放数据格式：<code class="highlighter-rouge">${data.bodyTemperature}</code><br />
+<br />END 以上</p>
+
+:ET
