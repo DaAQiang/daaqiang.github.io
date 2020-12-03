@@ -1,0 +1,62 @@
+I"�'<h3 id="html代码">HTML代码</h3>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"10%"</span> <span class="na">class=</span><span class="s">"pn-flabel pn-flabel-h"</span><span class="nt">&gt;</span>头像:<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"30%"</span> <span class="na">class=</span><span class="s">"pn-fcontent"</span><span class="nt">&gt;</span>
+	
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"outerdiv"</span>  <span class="na">onclick=</span><span class="s">"outer()"</span> <span class="na">style=</span><span class="s">"position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"innerdiv"</span> <span class="na">style=</span><span class="s">"position:absolute;"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">id=</span><span class="s">"bigimg"</span> <span class="na">style=</span><span class="s">"border:5px solid #fff;"</span> <span class="na">src=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;img</span> <span class="na">onclick=</span><span class="s">"show()"</span> <span class="na">src=</span><span class="s">"引用图片"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">style=</span><span class="s">"width:90px;height:120px"</span> <span class="na">id=</span><span class="s">"showImg"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/td&gt;</span>
+</code></pre></div></div>
+
+<h3 id="js代码">JS代码</h3>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">show</span><span class="p">(){</span>
+
+	<span class="kd">var</span> <span class="nx">windowW</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">width</span><span class="p">();</span><span class="c1">//获取当前窗口宽度</span>
+	
+    <span class="kd">var</span> <span class="nx">windowH</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">height</span><span class="p">();</span><span class="c1">//获取当前窗口高度</span>
+	
+	<span class="kd">var</span> <span class="nx">aa</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">showImg</span><span class="dl">"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">realWidth</span> <span class="o">=</span> <span class="nx">aa</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span><span class="c1">//获取图片真实宽度		</span>
+	<span class="kd">var</span> <span class="nx">realHeight</span> <span class="o">=</span> <span class="nx">aa</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span><span class="c1">//获取图片真实高度	</span>
+	
+    <span class="kd">var</span> <span class="nx">imgWidth</span><span class="p">,</span> <span class="nx">imgHeight</span><span class="p">;</span> 	
+    <span class="kd">var</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">;</span><span class="c1">//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放</span>
+	
+    <span class="k">if</span><span class="p">(</span><span class="nx">realHeight</span><span class="o">&gt;</span><span class="nx">windowH</span><span class="o">*</span><span class="nx">scale</span><span class="p">)</span> <span class="p">{</span><span class="c1">//判断图片高度 	</span>
+        <span class="nx">imgHeight</span> <span class="o">=</span> <span class="nx">windowH</span><span class="o">*</span><span class="nx">scale</span><span class="p">;</span><span class="c1">//如大于窗口高度，图片高度进行缩放 	</span>
+        <span class="nx">imgWidth</span> <span class="o">=</span> <span class="nx">imgHeight</span><span class="o">/</span><span class="nx">realHeight</span><span class="o">*</span><span class="nx">realWidth</span><span class="p">;</span><span class="c1">//等比例缩放宽度 	</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">imgWidth</span><span class="o">&gt;</span><span class="nx">windowW</span><span class="o">*</span><span class="nx">scale</span><span class="p">)</span> <span class="p">{</span><span class="c1">//如宽度扔大于窗口宽度</span>
+            <span class="nx">imgWidth</span> <span class="o">=</span> <span class="nx">windowW</span><span class="o">*</span><span class="nx">scale</span><span class="p">;</span><span class="c1">//再对宽度进行缩放	</span>
+        <span class="p">}</span> 	
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">realWidth</span><span class="o">&gt;</span><span class="nx">windowW</span><span class="o">*</span><span class="nx">scale</span><span class="p">)</span> <span class="p">{</span><span class="c1">//如图片高度合适，判断图片宽度 	</span>
+        <span class="nx">imgWidth</span> <span class="o">=</span> <span class="nx">windowW</span><span class="o">*</span><span class="nx">scale</span><span class="p">;</span><span class="c1">//如大于窗口宽度，图片宽度进行缩放	</span>
+        <span class="nx">imgHeight</span> <span class="o">=</span> <span class="nx">imgWidth</span><span class="o">/</span><span class="nx">realWidth</span><span class="o">*</span><span class="nx">realHeight</span><span class="p">;</span><span class="c1">//等比例缩放高度 	</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><span class="c1">//如果图片真实高度和宽度都符合要求，高宽不变 	</span>
+        <span class="nx">imgWidth</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>	
+        <span class="nx">imgHeight</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">var</span> <span class="nx">src</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#showImg</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">);</span><span class="c1">//获取当前点击的pimg元素中的src属性</span>
+   
+   	<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#bigimg</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">src</span><span class="dl">"</span><span class="p">,</span> <span class="nx">src</span><span class="p">);</span><span class="c1">//设置#bigimg元素的src属性</span>
+   	
+   	<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#bigimg</span><span class="dl">"</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="dl">"</span><span class="s2">width</span><span class="dl">"</span><span class="p">,</span><span class="nx">imgWidth</span><span class="p">);</span><span class="c1">//以最终的宽度对图片缩放</span>
+   	
+   <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="p">(</span><span class="nx">windowW</span><span class="o">-</span><span class="nx">imgWidth</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">//计算图片与窗口左边距</span>
+  
+   <span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="p">(</span><span class="nx">windowH</span><span class="o">-</span><span class="nx">imgHeight</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">//计算图片与窗口上边距</span>
+   
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#innerdiv</span><span class="dl">"</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="dl">"</span><span class="s2">top</span><span class="dl">"</span><span class="p">:</span><span class="nx">h</span><span class="p">,</span> <span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">:</span><span class="nx">w</span><span class="p">});</span><span class="c1">//设置#innerdiv的top和left属性</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#outerdiv</span><span class="dl">"</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">(</span><span class="dl">"</span><span class="s2">fast</span><span class="dl">"</span><span class="p">);</span><span class="c1">//淡入显示#outerdiv及.pimg</span>
+<span class="p">};</span>
+	
+<span class="kd">function</span> <span class="nx">outer</span><span class="p">(){</span><span class="c1">//再次点击淡出消失弹出层</span>
+	<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#outerdiv</span><span class="dl">"</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="dl">"</span><span class="s2">fast</span><span class="dl">"</span><span class="p">);</span>	
+<span class="p">};</span>
+</code></pre></div></div>
+<!--### 效果图-->
+:ET

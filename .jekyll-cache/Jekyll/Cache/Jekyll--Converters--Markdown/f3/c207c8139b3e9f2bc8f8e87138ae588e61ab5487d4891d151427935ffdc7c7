@@ -1,0 +1,12 @@
+I"�<h3 id="html代码">HTML代码</h3>
+<p>```html</p>
+<td width="10%" class="pn-flabel pn-flabel-h">头像:</td>
+<td width="30%" class="pn-fcontent">
+	
+<div id="outerdiv" onclick="outer()" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
+<div id="innerdiv" style="position:absolute;">
+<img id="bigimg" style="border:5px solid #fff;" src="" />
+</div>
+</div>
+</td>
+:ET
